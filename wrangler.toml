@@ -1,0 +1,23 @@
+name = "sell-mineral-rights-fast"
+pages_build_output_dir = "."
+compatibility_date = "2026-08-25"
+
+# NOTE: Cloudflare's native "send_email" binding is NOT supported in Pages
+# project config (it errors out the whole build: "Configuration file for
+# Pages projects does not support 'send_email'"). That's a Workers-only
+# feature right now. We send email via the Resend API instead (plain fetch
+# call from the Function, no special binding needed) — see DEPLOYMENT.md.
+
+[vars]
+FROM_EMAIL = "leads@sellmineralrightsfast.com"
+NOTIFY_EMAIL = "riley@dynastylm.com"
+
+# Add these as SECRETS via the dashboard (Settings > Environment variables >
+# encrypt) or via CLI — never commit real keys/tokens into this file:
+#   wrangler pages secret put RESEND_API_KEY        (required for email)
+#   wrangler pages secret put TWILIO_ACCOUNT_SID    (optional, for SMS)
+#   wrangler pages secret put TWILIO_AUTH_TOKEN     (optional, for SMS)
+#   wrangler pages secret put TWILIO_FROM_NUMBER    (optional, for SMS)
+#   wrangler pages secret put TWILIO_TO_NUMBER      (optional, for SMS)
+# The form still works without the Twilio ones — SMS alerts just stay off
+# until they're set. RESEND_API_KEY is needed for the email notification.
