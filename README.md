@@ -94,7 +94,7 @@ The company buys mineral and royalty interests in U.S. oil and gas fields. A lar
 
 The Louisiana page covers the Haynesville and South Louisiana. Do not put a city on the site.
 
-Colors on the site are only `#ffedca`, `#171717`, `#1d2a42`, and `#ffffff`. Headings use Montserrat, the closest open-license match to the "MINERAL PARTNERS" line in the logo. Body text uses Source Sans 3 at 18px. The script in the "Dynasty" wordmark is closest to Great Vibes. That face stays in the logo image. It is not used for headings, because a script is hard to read in a full headline.
+The page is warm paper with copper used for buttons and small labels. Headlines use Fraunces. Body text is Source Sans 3 at 18px. The script in the logo stays in the logo image.
 
 ## Analytics
 

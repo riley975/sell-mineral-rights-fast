@@ -263,7 +263,7 @@ function head({ title, description, path: pagePath, robots, schemas, noindex }) 
 <meta name="theme-color" content="#171717">
 <link rel="canonical" href="${canonical}">
 <link rel="preload" href="/fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/montserrat.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/styles.css">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
