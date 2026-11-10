@@ -84,7 +84,7 @@ The form fields are name, phone, email, state, county, and whether the owner is 
 
 ## Where we buy
 
-Featured areas, where the company is most active:
+The company buys mineral and royalty interests in U.S. oil and gas fields. A large share of acquisitions are in:
 
 - Permian Basin in Texas and New Mexico (Midland and Delaware)
 - Red Fork and Cherokee in the Oklahoma Anadarko
@@ -92,7 +92,7 @@ Featured areas, where the company is most active:
 - Powder River Basin, Converse County, Wyoming
 - Bakken in Montana and North Dakota
 
-If the numbers make sense, they will buy mineral and royalty interests in any U.S. oil and gas area. The Louisiana page is a normal acquisition page, including the Haynesville and South Louisiana.
+The Louisiana page covers the Haynesville and South Louisiana. Do not put a city on the site.
 
 Colors on the site are only `#ffedca`, `#171717`, `#1d2a42`, and `#ffffff`. Headings use Montserrat, the closest open-license match to the "MINERAL PARTNERS" line in the logo. Body text uses Source Sans 3 at 18px. The script in the "Dynasty" wordmark is closest to Great Vibes. That face stays in the logo image. It is not used for headings, because a script is hard to read in a full headline.
 

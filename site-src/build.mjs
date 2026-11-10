@@ -89,7 +89,7 @@ function footer(offerHref) {
   <div class="wrap footer-grid">
     <div class="footer-brand">
       ${logo(false)}
-      <p>Dynasty Mineral Partners is a DBA of Dynasty Land &amp; Minerals, LLC, in Weatherford, Texas. Direct buyer of oil and gas mineral and royalty interests.</p>
+      <p>Dynasty Mineral Partners is a DBA of Dynasty Land &amp; Minerals, LLC. We buy oil and gas mineral interests, royalty interests, and overriding royalties.</p>
     </div>
     <div>
       <p class="footer-title">Where we buy</p>
@@ -110,7 +110,6 @@ function footer(offerHref) {
       <ul>
         <li><a href="tel:${TEL}">${PHONE}</a></li>
         <li><a href="mailto:${EMAIL}">${EMAIL}</a></li>
-        <li>Weatherford, Texas</li>
       </ul>
     </div>
   </div>
@@ -201,14 +200,8 @@ function orgSchema() {
     image: SITE + "/og-image.png",
     telephone: TEL,
     email: EMAIL,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Weatherford",
-      addressRegion: "TX",
-      addressCountry: "US"
-    },
     areaServed: { "@type": "Country", name: "United States" },
-    description: "Direct buyer of oil and gas mineral, royalty, and overriding royalty interests. Most active in the Permian, Anadarko, DJ Basin, Powder River Basin, and Bakken. Buys in any U.S. oil and gas area when the numbers make sense."
+    description: "Direct buyer of oil and gas mineral interests, royalty interests, and overriding royalties in producing areas across the United States, including the Permian, Anadarko, DJ Basin, Powder River Basin, and Bakken."
   };
 }
 
@@ -309,15 +302,6 @@ function faqBlock(items) {
 }
 
 function homePage() {
-  const trust = [
-    "No fee to request an offer",
-    "No obligation to accept",
-    "Inherited and fractional interests",
-    "We handle title and closing"
-  ]
-    .map((label) => `<li>${esc(label)}</li>`)
-    .join("");
-
   const stepHtml = steps
     .map(
       ([title, text], i) => `<li>
@@ -350,7 +334,7 @@ function homePage() {
 
   const html = `${head({
     title: "Sell Mineral Rights Fast | Dynasty Mineral Partners",
-    description: "Direct buyer of minerals and royalties. Most active in the Permian, Anadarko, DJ, Powder River, and Bakken. Any U.S. area when the numbers make sense.",
+    description: "We buy oil and gas minerals, royalties, and overriding royalties across the United States, including the Permian, Anadarko, DJ, Powder River, and Bakken.",
     path: "/",
     schemas: [orgSchema(), faqSchema(homeFaqs)]
   })}
@@ -360,12 +344,12 @@ ${header("/")}
 <main id="main">
   <section class="hero">
     <div class="wrap hero-grid">
-      <p class="kicker">Weatherford, Texas</p>
+      <p class="kicker">Mineral and royalty acquisitions</p>
       <h1>Sell your mineral rights.</h1>
       ${formCard("")}
       <div class="hero-rest">
-        <p class="lede">Dynasty Mineral Partners is a direct buyer of oil and gas minerals and royalties. We are most active in the Permian, the Anadarko, the DJ Basin, the Powder River Basin, and the Bakken. If the numbers make sense, we will buy in any U.S. oil and gas area.</p>
-        <ul class="trust">${trust}</ul>
+        <p class="lede">Dynasty Mineral Partners purchases oil and gas mineral interests, royalty interests, and overriding royalties directly from the owner. Our acquisitions include the Permian Basin, the Anadarko Basin, the Denver-Julesburg Basin, the Powder River Basin, and the Bakken, along with other producing areas in the United States.</p>
+        <p class="lede">There is no fee for a written offer, and no obligation to accept one. Inherited interests and fractional shares are part of what we buy. If you accept, we order title and prepare the closing documents.</p>
         <p class="hero-phone">Call <a href="tel:${TEL}">${PHONE}</a></p>
       </div>
     </div>
@@ -374,7 +358,7 @@ ${header("/")}
     <div class="wrap">
       <div class="section-head">
         <h2>How an offer works</h2>
-        <p>You deal with the buyer. <a href="/how-it-works">Read the full process</a>.</p>
+        <p>The purchase is made with us, not through a listing. <a href="/how-it-works">The full sequence is here</a>.</p>
       </div>
       <ol class="steps">${stepHtml}</ol>
     </div>
@@ -383,7 +367,7 @@ ${header("/")}
     <div class="wrap">
       <div class="section-head">
         <h2>Where we buy</h2>
-        <p>These are the areas where we are most active. If the numbers make sense, we will buy mineral and royalty interests in any U.S. oil and gas area.</p>
+        <p>We buy mineral and royalty interests in oil and gas fields across the United States. The basins below are where a large share of our acquisitions are made.</p>
       </div>
       <div class="basins">${basinHtml}</div>
     </div>
@@ -401,7 +385,7 @@ ${header("/")}
     <div class="wrap">
       <div class="section-head">
         <h2>Working with us</h2>
-        <p>A direct purchase. No listing, and no fee to ask for an offer.</p>
+        <p>You are dealing with the company that will own the interest.</p>
       </div>
       <div class="why">${why}</div>
     </div>
@@ -417,8 +401,8 @@ ${header("/")}
   </section>
   <section class="cta-band">
     <div class="wrap">
-      <h2>Request a cash offer.</h2>
-      <p>Tell us the state and county, and whether you receive royalty checks. There is no fee, and you do not have to accept an offer.</p>
+      <h2>Request a written offer.</h2>
+      <p>The state, the county, and whether you receive royalty checks are enough to begin.</p>
       <div class="cta-actions">
         <a class="btn" href="#offer">Request a cash offer</a>
         <a class="phone" href="tel:${TEL}">or call ${PHONE}</a>

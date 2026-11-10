@@ -15,7 +15,7 @@ export const homeFaqs = [
   },
   {
     q: "Where do you buy?",
-    a: "We are most active in the Permian Basin in Texas and New Mexico, the Red Fork and Cherokee plays in the Oklahoma Anadarko Basin, the DJ Basin in Weld County, Colorado, the Powder River Basin in Converse County, Wyoming, and the Bakken in Montana and North Dakota. If the numbers make sense, we will buy mineral and royalty interests in any U.S. oil and gas area."
+    a: "We buy oil and gas mineral interests, royalties, and overriding royalties in producing areas across the United States. A large share of our acquisitions are in the Permian Basin of Texas and New Mexico, the Red Fork and Cherokee in Oklahoma’s Anadarko Basin, the DJ Basin in Weld County, Colorado, the Powder River Basin in Converse County, Wyoming, and the Bakken in Montana and North Dakota."
   },
   {
     q: "How long does closing take?",
@@ -24,9 +24,9 @@ export const homeFaqs = [
 ];
 
 export const steps = [
-  ["Tell us about the interest", "Call or use the form. The state, the county, and whether you receive royalty checks are enough to start. A check stub, division order, or deed helps. You do not need it to begin."],
-  ["Receive a written offer", "We review the interest and send a written offer, usually within a few business days. You can review it with your family, your attorney, or your tax advisor. You do not have to accept it."],
-  ["Close if you accept", "If you accept, we order title and prepare the deed. Most closings take a few weeks, depending on the county. You are paid when closing is complete."]
+  ["Tell us about the interest", "Call or use the form. We need the state, the county, and whether royalty checks are being paid. A check stub, division order, or deed lets us identify the wells sooner. None of those are required to start."],
+  ["We prepare a written offer", "We review production, the lease, and nearby drilling, then send a written offer, usually within a few business days. You may review it with your family, your attorney, or your tax advisor. Acceptance is your decision."],
+  ["Closing", "If you accept, we order title and prepare the deed. Most closings are completed within a few weeks. The county’s title work sets the schedule. Payment is made when closing is finished."]
 ];
 
 export const basins = [
@@ -55,7 +55,7 @@ export const basins = [
   {
     meta: "Wyoming",
     title: "Powder River Basin",
-    text: "We are most active in Converse County. We also review other Powder River interests.",
+    text: "Converse County is the core of our Powder River work. We also purchase interests in other Powder River counties.",
     links: [["/sell-mineral-rights-wyoming", "Wyoming"]]
   },
   {
@@ -70,29 +70,29 @@ export const basins = [
   {
     meta: "United States",
     title: "Any oil and gas area",
-    text: "If the numbers make sense, we will buy mineral and royalty interests in any U.S. oil and gas area. Tell us the state and county.",
+    text: "We also purchase minerals and royalties in other U.S. basins, including the Haynesville, Eagle Ford, Barnett, and San Juan.",
     links: [["/#offer", "Request an offer"]]
   }
 ];
 
 export const buyTypes = [
-  ["Producing (PDP)", "Wells are already producing. A royalty check is the usual sign. We look at the income, the decline, and the lease. We do not use a single price per acre."],
-  ["Near-term: permits and DUCs", "A permit is on file, or the well has been drilled and not yet completed. The value is in what is about to happen, even if you are not being paid yet."],
-  ["Undeveloped locations (PUD)", "The minerals are not producing. They sit where an operator can still drill. Location matters more than a current check."],
-  ["Minerals, royalties, and overrides", "We buy mineral interests, royalty interests, and overriding royalty interests. An override comes out of a lease and usually lasts only as long as that lease."],
-  ["Inherited, small, and fractional", "A family share or a small decimal is enough to review. One owner can request an offer on their own share."]
+  ["Producing interests", "These are proved developed producing properties. The wells are on production, and the owner is often receiving a royalty check. We price them from the income, the decline, and the lease terms."],
+  ["Permits and drilled wells", "A permit may be on file, or the well may be drilled and waiting on completion. We underwrite those interests from the expected well, not from a check that has not started."],
+  ["Undeveloped locations", "Proved undeveloped locations are not producing yet. Value depends on where the acreage sits and what an operator can still drill there."],
+  ["Royalties and overrides", "We buy mineral interests, leasehold royalties, and overriding royalty interests. An override is carved from a lease and generally ends when that lease ends."],
+  ["Inherited and fractional shares", "Many of the interests we buy were inherited and are owned in fractions. One heir may sell a share without the other owners selling theirs."]
 ];
 
 export const reasons = [
-  ["You deal with the buyer", "We buy for our own account. The interest is not listed for someone else, and there is no broker fee between you and the offer."],
-  ["No fee to ask", "Requesting an offer costs nothing. If the number is not right, you can decline. A sale can have tax consequences. Ask your own tax advisor before you sign."],
-  ["We handle title", "If you accept, we order title and prepare the closing documents. You can have your own attorney review anything you are asked to sign."],
-  ["A direct line", "Dynasty Mineral Partners is a DBA of Dynasty Land & Minerals, LLC, in Weatherford, Texas. Call (817) 818-1034 or email riley@dynastylm.com."]
+  ["A direct purchase", "We buy for our own account. The interest is not placed on a listing, and there is no broker commission in the offer."],
+  ["A written offer", "The offer is in writing. There is no charge to receive it, and declining it ends the matter. Tax treatment of a sale is a question for your own advisor."],
+  ["Title and the deed", "If you accept, we order title and prepare the conveyance. Your own attorney may review the documents before you sign."],
+  ["How to reach us", "Dynasty Mineral Partners is a DBA of Dynasty Land & Minerals, LLC. Call (817) 818-1034 or email riley@dynastylm.com."]
 ];
 
 const disclaimer = `<p class="legal-note">Dynasty Mineral Partners is a mineral and royalty interest acquisition company. We are not attorneys or tax advisors, and nothing on this website is legal, tax, or financial advice.</p>`;
 
-const anywhere = `<p>These notes describe where we are most active. If the numbers make sense, we will buy mineral and royalty interests in any U.S. oil and gas area.</p>`;
+const anywhere = ``;
 
 export const pages = [
   {
@@ -102,7 +102,7 @@ export const pages = [
     description: "How a mineral-rights sale works with a direct buyer: what we ask, how an offer is prepared, and who handles title and closing. No fee and no obligation.",
     crumb: "How It Works",
     h1: "How selling mineral rights works",
-    lede: "Five steps from a call to payment. You are talking to the buyer.",
+    lede: "You deal directly with the buyer, from the first call through payment.",
     state: "",
     faqs: [
       { q: "Do I need paperwork before I contact you?", a: "No. The state, the county, and what you know about the interest are enough to start. Check stubs, division orders, leases, and deeds make the review faster when you have them." },
@@ -115,7 +115,7 @@ export const pages = [
 <p>A check stub, division order, lease, or deed is useful. You do not need any of them to start.</p>
 <h2>2. We review the interest</h2>
 <p>There is no single price per acre. We look at the wells, production, the lease, your decimal, and nearby permits or drilling. Producing interests, near-term interests, and undeveloped locations are priced differently because the risk is different.</p>
-<p>We are most active in the Permian Basin, the Red Fork and Cherokee plays in the Anadarko Basin, the DJ Basin in Weld County, the Powder River Basin in Converse County, and the Bakken. If the numbers make sense, we will buy in any U.S. oil and gas area.</p>
+<p>Much of our work is in the Permian Basin, the Red Fork and Cherokee of the Anadarko Basin, the DJ Basin in Weld County, the Powder River Basin in Converse County, and the Bakken. We also purchase interests in other producing areas of the United States.</p>
 <h2>3. You receive a written offer</h2>
 <p>We send a written offer, usually within a few business days of having enough information. You can review it with your family, an attorney, or a tax advisor. You do not have to accept it.</p>
 <div class="callout"><p>You can sell all of an interest or only part of it.</p></div>
@@ -135,7 +135,7 @@ ${disclaimer}`
     description: "What changes the value of an oil and gas mineral or royalty interest: income, decline, the lease, and nearby drilling. How to request a written offer.",
     crumb: "What It’s Worth",
     h1: "What mineral rights are worth",
-    lede: "Buyers price an interest, not a county. Here is what changes the number.",
+    lede: "Price follows the wells, the lease, and your share of them. Two interests in the same county can be far apart.",
     state: "",
     faqs: [
       { q: "Can you quote a price per acre?", a: "Not without looking at the interest. Two owners in the same county can be far apart because of production, lease terms, and what is left to drill." },
@@ -170,7 +170,7 @@ ${disclaimer}`
     description: "Inherited oil and gas minerals or royalties? How a sale works with several heirs, unfinished probate, or very little paperwork. No fee and no obligation.",
     crumb: "Inherited Minerals",
     h1: "Selling inherited mineral rights",
-    lede: "Many owners inherited a share from a parent or grandparent. The share is often small and split among several people.",
+    lede: "A large share of the interests we buy were inherited, often as a fraction split among several heirs.",
     state: "",
     faqs: [
       { q: "Can each heir sell separately?", a: "Usually, yes. We can offer on your share without the rest of the family selling. If everyone wants to sell together, we can make an offer to each owner." },
@@ -180,7 +180,7 @@ ${disclaimer}`
     article: `
 <h2>Inherited minerals are common</h2>
 <p>A check arrives, or a division order, or a letter from an operator. The interest may be a few acres from a parent’s estate, split among several heirs. We buy that kind of interest.</p>
-<p>We are most active in the Permian Basin, the Red Fork and Cherokee plays in Oklahoma, the DJ Basin in Weld County, the Powder River Basin in Converse County, and the Bakken. If the numbers make sense, we will buy in any U.S. oil and gas area.</p>
+<p>We buy inherited interests in the Permian Basin, the Anadarko Basin, the DJ Basin, the Powder River Basin, the Bakken, and in other U.S. oil and gas fields.</p>
 <h2>Selling before probate is finished</h2>
 <p>It depends on title. The deed has to come from the person who owns the interest. In some estates that ownership is already of record. In others the estate still needs probate, an affidavit of heirship, or another step. We will tell you what the county records show. Estate questions belong with an attorney licensed in the state where the minerals are.</p>
 <h2>Several heirs</h2>
@@ -226,9 +226,9 @@ ${disclaimer}`
 </div>
 <h2 class="faq-group">Where we buy</h2>
 <div class="faq">
-<details><summary>Where are you most active?</summary><p>The Permian Basin in Texas and New Mexico. Red Fork and Cherokee in the Anadarko Basin of Oklahoma. The DJ Basin in Weld County, Colorado. The Powder River Basin in Converse County, Wyoming. The Bakken in Montana and North Dakota.</p></details>
-<details><summary>Do you buy in other states and plays?</summary><p>Yes. If the numbers make sense, we will buy mineral and royalty interests in any U.S. oil and gas area. That includes Louisiana, the Haynesville, the Eagle Ford, the Barnett, and other plays. Choose your state on the form, or call <a href="tel:+18178181034">(817) 818-1034</a>.</p></details>
-<details><summary>Do you buy only in the counties named on the state pages?</summary><p>No. Those counties are examples of where we are most active. Send the county you actually own in. We will tell you whether we can make an offer.</p></details>
+<details><summary>Where do you buy?</summary><p>We buy oil and gas mineral interests, royalties, and overriding royalties in producing areas across the United States. A large share of our acquisitions are in the Permian Basin, the Red Fork and Cherokee of the Anadarko Basin, the DJ Basin in Weld County, the Powder River Basin in Converse County, and the Bakken.</p></details>
+<details><summary>Do you buy in Louisiana, the Eagle Ford, the Barnett, and other plays?</summary><p>Yes. Those areas are part of what we purchase, along with the Haynesville and other U.S. fields. Choose your state on the form, or call <a href="tel:+18178181034">(817) 818-1034</a>.</p></details>
+<details><summary>Are you limited to the counties named on the state pages?</summary><p>No. The counties named on those pages are examples, not a boundary. Give us the county where the minerals are located.</p></details>
 </div>
 <h2 class="faq-group">Closing</h2>
 <div class="faq">
@@ -252,7 +252,7 @@ ${disclaimer}`
     article: `
 <p><em>Last updated: November 10, 2026</em></p>
 <h2>Who we are</h2>
-<p>This website is operated by Dynasty Land &amp; Minerals, LLC, doing business as Dynasty Mineral Partners (“we,” “us”), based in Weatherford, Texas. Contact: <a href="mailto:riley@dynastylm.com">riley@dynastylm.com</a>, <a href="tel:+18178181034">(817) 818-1034</a>.</p>
+<p>This website is operated by Dynasty Land &amp; Minerals, LLC, doing business as Dynasty Mineral Partners (“we,” “us”). Contact: <a href="mailto:riley@dynastylm.com">riley@dynastylm.com</a>, <a href="tel:+18178181034">(817) 818-1034</a>.</p>
 <h2>Information we collect</h2>
 <p>When you submit the offer form, we collect what you provide: name, phone number, email if you include one, state, county, whether you receive royalty checks, and the page you submitted from. We also collect standard technical data, such as browser type and pages visited, through cookies used by our analytics and advertising tags.</p>
 <h2>How we use it</h2>
@@ -275,10 +275,10 @@ ${disclaimer}`
     file: "sell-mineral-rights-texas.html",
     path: "/sell-mineral-rights-texas",
     title: "Sell Mineral Rights in Texas | Dynasty Mineral Partners",
-    description: "Cash offers for Texas mineral and royalty interests. Most active in the Permian Basin. We also buy other Texas areas when the numbers make sense.",
+    description: "We buy Texas mineral and royalty interests, including the Permian Basin, the Eagle Ford, the Barnett, and East Texas. No fee and no obligation.",
     crumb: "Texas",
     h1: "Sell mineral rights in Texas",
-    lede: "We buy oil and gas minerals, royalties, and overrides in Texas. We are most active in the Permian Basin, in both the Midland Basin and the Delaware Basin.",
+    lede: "We purchase oil and gas mineral interests, royalties, and overriding royalties throughout Texas. The Permian Basin, both the Midland Basin and the Delaware Basin, is the center of that work.",
     faqHeading: "Questions about Texas",
     state: "Texas",
     related: [
@@ -286,19 +286,18 @@ ${disclaimer}`
       ["/sell-mineral-rights-new-mexico", "New Mexico"]
     ],
     faqs: [
-      { q: "Do you buy outside the Permian in Texas?", a: "Yes. The Permian is where we are most active. If the numbers make sense, we will also buy Eagle Ford, Barnett, East Texas, and other Texas interests." },
-      { q: "Which Texas counties are you most active in?", a: "Midland Basin counties such as Midland, Martin, Howard, Glasscock, Reagan, and Upton, and Delaware Basin counties such as Reeves, Loving, Ward, Winkler, Pecos, and Culberson. Other Texas counties are worth sending." },
+      { q: "Do you buy outside the Permian in Texas?", a: "Yes. We buy Eagle Ford, Barnett, East Texas, and other Texas mineral and royalty interests, as well as the Permian." },
+      { q: "Which Texas counties do you see most often?", a: "In the Midland Basin, counties such as Midland, Martin, Howard, Glasscock, Reagan, and Upton. In the Delaware Basin, counties such as Reeves, Loving, Ward, Winkler, Pecos, and Culberson. We also buy in other Texas counties." },
       { q: "Do you buy small or inherited Texas interests?", a: "Yes. Fractional and inherited interests are included. You do not need to own an entire section." }
     ],
     article: `
-<h2>The Permian is where we are most active</h2>
+<h2>Permian Basin</h2>
 <p>Texas mineral ownership is often old, split, and inherited. We buy from individual and family owners. In the Permian we buy producing wells, near-term development, and undeveloped locations. Minerals, royalties, and overriding royalties are all included.</p>
 <h2>Midland Basin and the Texas Delaware</h2>
 <p>The Midland Basin is the eastern Permian. Counties we review often include Midland, Martin, Howard, Glasscock, Reagan, and Upton. The Delaware Basin is the western Permian. On the Texas side that includes counties such as Reeves, Loving, Ward, Winkler, Pecos, and Culberson.</p>
 <p>The New Mexico side of the Delaware is on our <a href="/sell-mineral-rights-new-mexico">New Mexico</a> page. Both sides are covered on the <a href="/sell-mineral-rights-permian-basin">Permian Basin</a> page.</p>
 <h2>Other Texas areas</h2>
-<p>We also buy in other Texas plays when the numbers make sense. That includes the Eagle Ford, the Barnett, and East Texas. Tell us the county.</p>
-${anywhere}
+<p>We also purchase interests in the Eagle Ford, the Barnett, East Texas, and other parts of the state. The county is enough for us to start the review.</p>
 <h2>Records</h2>
 <p>Production and permitting in Texas run through the <a href="https://www.rrc.texas.gov/">Railroad Commission of Texas</a>. Deeds and leases are recorded with the county clerk where the minerals are. A recent royalty stub and a legal description are usually enough for us to find the rest.</p>
 <h2>How an offer works</h2>
@@ -310,10 +309,10 @@ ${disclaimer}`
     file: "sell-mineral-rights-new-mexico.html",
     path: "/sell-mineral-rights-new-mexico",
     title: "Sell Mineral Rights in New Mexico | Dynasty Mineral Partners",
-    description: "Cash offers for New Mexico mineral and royalty interests. Most active in the Delaware Basin, including Lea and Eddy counties. No fee and no obligation.",
+    description: "We buy New Mexico mineral and royalty interests, including the Delaware Basin in Lea and Eddy counties and other producing areas of the state.",
     crumb: "New Mexico",
     h1: "Sell mineral rights in New Mexico",
-    lede: "In New Mexico we are most active in the Delaware Basin, principally Lea County and Eddy County. We also buy other New Mexico interests when the numbers make sense.",
+    lede: "We purchase mineral and royalty interests in New Mexico. Lea County and Eddy County, on the Delaware side of the Permian, are where that work is concentrated. We also buy elsewhere in the state, including the San Juan Basin.",
     faqHeading: "Questions about New Mexico",
     state: "New Mexico",
     related: [
@@ -321,7 +320,7 @@ ${disclaimer}`
       ["/sell-mineral-rights-texas", "Texas"]
     ],
     faqs: [
-      { q: "Do you buy only in Lea and Eddy counties?", a: "Those counties are where we are most active. If the numbers make sense, we will also review other New Mexico interests, including the San Juan Basin." },
+      { q: "Do you buy only in Lea and Eddy counties?", a: "No. Lea and Eddy are the center of our New Mexico work. We also buy other New Mexico interests, including the San Juan Basin." },
       { q: "Do you buy producing and non-producing interests?", a: "Yes. Producing royalties, near-term wells, and undeveloped locations are all in range, including small and inherited shares." },
       { q: "Where are New Mexico mineral deeds recorded?", a: "With the county clerk in the county where the minerals are located. Well and production records are kept by the New Mexico Oil Conservation Division." }
     ],
@@ -329,8 +328,7 @@ ${disclaimer}`
 <h2>Delaware Basin</h2>
 <p>The Permian continues into Lea County and Eddy County. That is the New Mexico interest we review most often: minerals, royalties, and overriding royalties, whether they are producing, permitted, drilled but not completed, or still undeveloped.</p>
 <h2>Other New Mexico interests</h2>
-<p>If your minerals are in another part of New Mexico, send the county. If the numbers make sense, we will make an offer. You do not need to limit the form to the Delaware Basin.</p>
-${anywhere}
+<p>Interests outside Lea and Eddy counties are purchased as well. Include the county on the form.</p>
 <h2>How these interests are usually owned</h2>
 <p>A lot of New Mexico mineral ownership is fractional and inherited, often described by section, township, and range. A division order decimal and a section number are often enough to identify the tract. One heir can request an offer on their own share.</p>
 <h2>Records</h2>
@@ -343,10 +341,10 @@ ${disclaimer}`
     file: "sell-mineral-rights-oklahoma.html",
     path: "/sell-mineral-rights-oklahoma",
     title: "Sell Mineral Rights in Oklahoma | Dynasty Mineral Partners",
-    description: "Cash offers for Oklahoma mineral and royalty interests. Most active in the Red Fork and Cherokee plays in the Anadarko Basin. Inherited and fractional interests included.",
+    description: "We buy Oklahoma mineral and royalty interests, including Red Fork and Cherokee, SCOOP, STACK, and the Arkoma Basin.",
     crumb: "Oklahoma",
     h1: "Sell mineral rights in Oklahoma",
-    lede: "In Oklahoma we are most active in the Red Fork and Cherokee plays in the Anadarko Basin. We also buy other Oklahoma interests when the numbers make sense.",
+    lede: "We purchase Oklahoma mineral and royalty interests, with particular attention to the Red Fork and Cherokee sands in the Anadarko Basin. SCOOP, STACK, and Arkoma interests are purchased as well.",
     faqHeading: "Questions about Oklahoma",
     state: "Oklahoma",
     related: [
@@ -354,7 +352,7 @@ ${disclaimer}`
       ["/inherited-mineral-rights", "Inherited minerals"]
     ],
     faqs: [
-      { q: "Do you buy SCOOP, STACK, or Arkoma minerals?", a: "Yes, when the numbers make sense. We are most active in the Red Fork and Cherokee. Other Oklahoma plays are still worth sending." },
+      { q: "Do you buy SCOOP, STACK, or Arkoma minerals?", a: "Yes. The Red Fork and Cherokee are the plays we underwrite most often. We also buy SCOOP, STACK, and Arkoma interests." },
       { q: "I received a pooling notice. Can I still ask for an offer?", a: "Yes. Pooling elections have deadlines and legal consequences set out in the order. Read the order and consider talking with an Oklahoma oil and gas attorney before you elect. An offer from us is one option. It is not legal advice about the election." },
       { q: "Do you buy small Oklahoma mineral interests?", a: "Yes. Oklahoma minerals are often split across many owners and many sections. A small net-acre position is still something we will review." }
     ],
@@ -362,8 +360,7 @@ ${disclaimer}`
 <h2>Red Fork and Cherokee</h2>
 <p>The Red Fork and Cherokee are Pennsylvanian sands across the Anadarko Basin of western Oklahoma. A lot of the ownership is inherited, fractional, and scattered across more than one section. We buy producing royalties, near-term wells, undeveloped locations, and overriding royalties in those plays.</p>
 <h2>Other Oklahoma plays</h2>
-<p>We also buy other Oklahoma interests when the numbers make sense, including SCOOP, STACK, and the Arkoma Basin. Tell us the county.</p>
-${anywhere}
+<p>SCOOP, STACK, and the Arkoma Basin are part of what we buy in Oklahoma. The county, and a section if you have it, is enough to begin.</p>
 <h2>Section, township, and range</h2>
 <p>Oklahoma descriptions usually run by section, township, and range. Your decimal may be on a division order or a check stub. A pooling notice often names the section. Any of those is a useful start.</p>
 <h2>Pooling notices</h2>
@@ -377,10 +374,10 @@ ${disclaimer}`
     file: "sell-mineral-rights-colorado.html",
     path: "/sell-mineral-rights-colorado",
     title: "Sell Mineral Rights in Colorado | Dynasty Mineral Partners",
-    description: "Cash offers for Colorado mineral and royalty interests. Most active in the DJ Basin in Weld County. A direct buyer. No fee and no obligation.",
+    description: "We buy Colorado mineral and royalty interests, including the DJ Basin in Weld County and other producing areas of the state.",
     crumb: "Colorado",
     h1: "Sell mineral rights in Colorado",
-    lede: "In Colorado we are most active in the DJ Basin, focused on Weld County. We also buy other Colorado interests when the numbers make sense.",
+    lede: "We purchase mineral and royalty interests in Colorado’s Denver-Julesburg Basin. Weld County is the center of that work. We also buy interests in other Colorado counties.",
     faqHeading: "Questions about Colorado",
     state: "Colorado",
     related: [
@@ -388,32 +385,31 @@ ${disclaimer}`
       ["/mineral-rights-value", "What it’s worth"]
     ],
     faqs: [
-      { q: "Do you buy mineral rights outside Weld County?", a: "Weld County is where we are most active. If the numbers make sense, we will also review other Colorado counties and basins." },
+      { q: "Do you buy mineral rights outside Weld County?", a: "Yes. Weld County is the center of our Colorado work. We also buy interests in other Colorado counties and basins." },
       { q: "Do you buy small inherited interests in the DJ Basin?", a: "Yes. Fractional and inherited shares are included." },
       { q: "Who regulates oil and gas wells in Colorado?", a: "The Energy and Carbon Management Commission. Deeds are recorded with the clerk and recorder in the county where the minerals are located." }
     ],
     article: `
 <h2>Weld County and the DJ Basin</h2>
-<p>The Denver-Julesburg Basin is where we are most active in Colorado, and Weld County is the center of that work. We buy mineral interests, royalty interests, and overriding royalties: wells that are producing, permits, drilled but uncompleted wells, and undeveloped locations.</p>
+<p>In the Denver-Julesburg Basin we buy mineral interests, royalty interests, and overriding royalties, including producing wells, permitted locations, drilled but uncompleted wells, and undeveloped acreage. Weld County is where most of those interests sit.</p>
 <h2>Other Colorado interests</h2>
-<p>If your minerals are in another Colorado county, send them. If the numbers make sense, we will make an offer. That includes other DJ Basin counties and other Colorado basins.</p>
-${anywhere}
+<p>Interests in other DJ Basin counties, and in other Colorado basins, are purchased as well.</p>
 <h2>What a DJ interest often looks like</h2>
 <p>Many Weld County owners inherited a fractional interest. The mail they receive is a royalty statement or a lease offer. A stub with the well name and your decimal is enough to start. You can sell your share without the other owners selling theirs, if title is in your name.</p>
 <h2>Records</h2>
 <p>Colorado oil and gas operations are regulated by the <a href="https://ecmc.state.co.us/">Energy and Carbon Management Commission</a>. Deeds and leases are recorded with the county clerk and recorder. We use both the well records and the county record when we write an offer.</p>
 <p>Offers are in writing, usually within a few business days of a review. <a href="/how-it-works">How the rest of the sale works</a>.</p>
-<div class="callout"><p>Call <a href="tel:+18178181034">(817) 818-1034</a> or use the form. We are based in Weatherford, Texas.</p></div>
+<div class="callout"><p>Call <a href="tel:+18178181034">(817) 818-1034</a> or use the form.</p></div>
 ${disclaimer}`
   },
   {
     file: "sell-mineral-rights-wyoming.html",
     path: "/sell-mineral-rights-wyoming",
     title: "Sell Mineral Rights in Wyoming | Dynasty Mineral Partners",
-    description: "Cash offers for Wyoming mineral and royalty interests. Most active in the Powder River Basin in Converse County. No fee and no obligation.",
+    description: "We buy Wyoming mineral and royalty interests, including the Powder River Basin in Converse County and other producing areas of the state.",
     crumb: "Wyoming",
     h1: "Sell mineral rights in Wyoming",
-    lede: "In Wyoming we are most active in the Powder River Basin, and in Converse County in particular. We also buy other Wyoming interests when the numbers make sense.",
+    lede: "We purchase mineral and royalty interests in Wyoming’s Powder River Basin, particularly in Converse County. We also buy interests in other Wyoming counties.",
     faqHeading: "Questions about Wyoming",
     state: "Wyoming",
     related: [
@@ -421,7 +417,7 @@ ${disclaimer}`
       ["/sell-mineral-rights-montana", "Montana"]
     ],
     faqs: [
-      { q: "Do you buy only in Converse County?", a: "Converse County is where we are most active. If the numbers make sense, we will also review other Powder River counties and other Wyoming interests." },
+      { q: "Do you buy only in Converse County?", a: "No. Converse County is the core of our Powder River work. We also buy interests in other Powder River counties and elsewhere in Wyoming." },
       { q: "Do you buy federal or fee minerals?", a: "We buy private mineral and royalty interests, including interests under fee land. If you are not sure what you own, tell us what the document says." },
       { q: "Are fractional Wyoming interests too small?", a: "No. Inherited and fractional shares are included." }
     ],
@@ -429,8 +425,7 @@ ${disclaimer}`
 <h2>Converse County and the Powder River Basin</h2>
 <p>The Powder River Basin in northeastern Wyoming is where our Wyoming work is aimed, especially Converse County. We buy mineral interests, royalty interests, and overriding royalties there: producing wells, permits, drilled but uncompleted wells, and undeveloped locations.</p>
 <h2>Other Wyoming interests</h2>
-<p>Campbell County and other Powder River counties are worth sending. So are interests in other Wyoming basins. If the numbers make sense, we will make an offer.</p>
-${anywhere}
+<p>We also purchase interests in Campbell County, in other Powder River counties, and in other Wyoming basins.</p>
 <h2>How these interests are usually owned</h2>
 <p>Powder River minerals are often fractional and sometimes inherited. The mineral owner and the surface owner do not have to be the same person. We buy the mineral or royalty side. A check stub, a division order, or a deed is a strong start.</p>
 <h2>Records</h2>
@@ -443,10 +438,10 @@ ${disclaimer}`
     file: "sell-mineral-rights-montana.html",
     path: "/sell-mineral-rights-montana",
     title: "Sell Mineral Rights in Montana | Dynasty Mineral Partners",
-    description: "Cash offers for Montana mineral and royalty interests. Most active in the Bakken in eastern Montana. We also buy other Montana interests when the numbers make sense.",
+    description: "We buy Montana mineral and royalty interests, including Bakken interests in eastern Montana and other producing areas of the state.",
     crumb: "Montana",
     h1: "Sell mineral rights in Montana",
-    lede: "In Montana we are most active in the Bakken, including Richland County and the counties along the North Dakota line. We also buy other Montana interests when the numbers make sense.",
+    lede: "We purchase mineral and royalty interests in Montana, including Bakken interests in Richland County and the counties along the North Dakota line.",
     faqHeading: "Questions about Montana",
     state: "Montana",
     related: [
@@ -454,16 +449,15 @@ ${disclaimer}`
       ["/sell-mineral-rights-wyoming", "Wyoming"]
     ],
     faqs: [
-      { q: "Which part of Montana are you most active in?", a: "The Bakken in eastern Montana, including areas such as Richland County. Other Montana counties are still worth sending." },
-      { q: "Will you make an offer on every Montana interest?", a: "We review the interest and the numbers. If they make sense, we will make an offer. If they do not, we will say so." },
+      { q: "Where in Montana do you buy?", a: "The Bakken in eastern Montana, including Richland County, is a regular part of our work. We also buy mineral and royalty interests in other Montana counties." },
+      { q: "Do you offer on every Montana interest?", a: "We review the interest and respond with an offer when we can purchase it. There is no fee for that review, and you are not required to accept." },
       { q: "Do you buy inherited Bakken minerals?", a: "Yes. Small and fractional shares are included." }
     ],
     article: `
 <h2>Bakken in eastern Montana</h2>
 <p>We buy Bakken mineral, royalty, and overriding royalty interests in eastern Montana. That includes producing interests, near-term wells, and undeveloped locations around Richland County and the counties along the North Dakota line.</p>
 <h2>Other Montana interests</h2>
-<p>If your minerals are in another part of Montana, send the county. If the numbers make sense, we will make an offer.</p>
-${anywhere}
+<p>Mineral and royalty interests in other parts of Montana are purchased as well. Include the county on the form.</p>
 <h2>The other side of the state line</h2>
 <p>The same Bakken trend continues into western North Dakota. If you own on both sides, say so. The North Dakota page is <a href="/sell-mineral-rights-north-dakota">here</a>.</p>
 <h2>Paperwork and title</h2>
@@ -476,10 +470,10 @@ ${disclaimer}`
     file: "sell-mineral-rights-north-dakota.html",
     path: "/sell-mineral-rights-north-dakota",
     title: "Sell Mineral Rights in North Dakota | Dynasty Mineral Partners",
-    description: "Cash offers for North Dakota mineral and royalty interests. Most active in the Bakken in western North Dakota. Small and inherited interests included.",
+    description: "We buy North Dakota mineral and royalty interests, including Bakken interests in McKenzie and Williams counties.",
     crumb: "North Dakota",
     h1: "Sell mineral rights in North Dakota",
-    lede: "In North Dakota we are most active in the Bakken in western North Dakota. We also buy other North Dakota interests when the numbers make sense.",
+    lede: "We purchase mineral and royalty interests in North Dakota, including Bakken interests in McKenzie County, Williams County, and the surrounding Bakken counties.",
     faqHeading: "Questions about North Dakota",
     state: "North Dakota",
     related: [
@@ -487,16 +481,15 @@ ${disclaimer}`
       ["/how-it-works", "How it works"]
     ],
     faqs: [
-      { q: "Which North Dakota counties?", a: "We are most active in the Bakken, including counties such as McKenzie and Williams. Other North Dakota counties are still worth sending." },
+      { q: "Which North Dakota counties?", a: "McKenzie and Williams counties, and the other Bakken counties of western North Dakota, are a regular part of our work. We also buy interests in other North Dakota counties." },
       { q: "Do you buy only producing Bakken wells?", a: "No. We look at producing interests, near-term wells, and undeveloped locations." },
       { q: "Do you buy small mineral interests in North Dakota?", a: "Yes. Fractional and inherited shares are included." }
     ],
     article: `
 <h2>Bakken in western North Dakota</h2>
-<p>The Bakken in western North Dakota, including counties such as McKenzie and Williams, is where we are most active in the state. We buy mineral interests, royalty interests, and overriding royalties: producing wells, permits, drilled but uncompleted wells, and undeveloped locations.</p>
+<p>In western North Dakota we buy mineral interests, royalty interests, and overriding royalties in the Bakken, including producing wells, permitted locations, drilled but uncompleted wells, and undeveloped acreage. McKenzie County and Williams County are the counties we see most often.</p>
 <h2>Other North Dakota interests</h2>
-<p>If the interest is outside that fairway, send the county. If the numbers make sense, we will make an offer.</p>
-${anywhere}
+<p>Interests outside that fairway are purchased as well. Include the county on the form.</p>
 <h2>Montana is the same trend</h2>
 <p>Eastern Montana Bakken interests are described on the <a href="/sell-mineral-rights-montana">Montana page</a>. Name both counties if you own on both sides of the line.</p>
 <h2>Records</h2>
@@ -513,7 +506,7 @@ ${disclaimer}`
     description: "Cash offers for Permian Basin minerals and royalties in the Midland and Delaware basins, across Texas and New Mexico. Producing, near-term, and undeveloped.",
     crumb: "Permian Basin",
     h1: "Sell mineral rights in the Permian Basin",
-    lede: "The Permian is where we are most active. We buy minerals, royalties, and overrides on both sides of the basin and on both sides of the Texas–New Mexico line.",
+    lede: "We purchase minerals, royalties, and overriding royalties on both sides of the Permian, in Texas and in New Mexico.",
     faqHeading: "Questions about the Permian",
     state: "",
     related: [
@@ -523,7 +516,7 @@ ${disclaimer}`
     faqs: [
       { q: "What is the difference between the Midland and Delaware basins?", a: "They are the two halves of the Permian. The Midland Basin is the eastern side, in Texas. The Delaware Basin is the western side, in Texas and in Lea and Eddy counties, New Mexico. We buy in both." },
       { q: "Do you buy only producing Permian wells?", a: "No. We buy producing interests, near-term interests such as permits and drilled but uncompleted wells, and undeveloped locations, along with overriding royalties." },
-      { q: "Do you buy outside the Permian?", a: "Yes. The Permian is where we are most active. If the numbers make sense, we will buy mineral and royalty interests in any U.S. oil and gas area." }
+      { q: "Do you buy outside the Permian?", a: "Yes. The Permian is a large part of our work. We also buy mineral and royalty interests in other U.S. oil and gas areas." }
     ],
     article: `
 <h2>One basin, two states</h2>
@@ -533,7 +526,6 @@ ${disclaimer}`
 <p>The Midland Basin is in Texas. Counties we review often include Midland, Martin, Howard, Glasscock, Reagan, and Upton. We look at the wells that are paying, the ones that are permitted or drilled but not completed, and locations that are still undeveloped.</p>
 <h2>Delaware Basin</h2>
 <p>The Delaware Basin is the western Permian. In Texas that includes counties such as Reeves, Loving, Ward, Winkler, Pecos, and Culberson. In New Mexico it is principally Lea County and Eddy County.</p>
-${anywhere}
 <h2>What we need from you</h2>
 <p>The county, and as much of the legal description as you have. A royalty check stub is the fastest picture of a producing decimal. If you have never received a check, say that. Inherited and fractional shares are common.</p>
 <h2>How the offer is made</h2>
@@ -548,7 +540,7 @@ ${disclaimer}`
     description: "Cash offers for Louisiana mineral and royalty interests, including the Haynesville and South Louisiana. Direct buyer. No fee and no obligation.",
     crumb: "Louisiana",
     h1: "Sell mineral rights in Louisiana",
-    lede: "We buy oil and gas mineral and royalty interests in Louisiana, including the Haynesville and South Louisiana. If the numbers make sense, we will make an offer.",
+    lede: "We purchase oil and gas mineral and royalty interests in Louisiana, including the Haynesville Shale and fields in South Louisiana.",
     faqHeading: "Questions about Louisiana",
     state: "Louisiana",
     related: [
@@ -557,7 +549,7 @@ ${disclaimer}`
       ["/faq", "FAQ"]
     ],
     faqs: [
-      { q: "Do you buy Haynesville mineral rights?", a: "Yes. We buy Haynesville mineral and royalty interests, and interests in other Louisiana parishes, when the numbers make sense." },
+      { q: "Do you buy Haynesville mineral rights?", a: "Yes. We buy Haynesville mineral and royalty interests, and interests in other Louisiana parishes." },
       { q: "Do you buy South Louisiana interests?", a: "Yes. South Louisiana is included. Send the parish and what you know about the interest." },
       { q: "Do you buy small or inherited interests in Louisiana?", a: "Yes. Fractional and inherited shares are included. You can use the parish name in the county field." }
     ],
@@ -565,7 +557,6 @@ ${disclaimer}`
 <h2>Haynesville and South Louisiana</h2>
 <p>We buy producing interests, near-term interests, and undeveloped interests in Louisiana. That includes the Haynesville in the northwest and producing fields in South Louisiana. Minerals, royalties, and overriding royalties are included. Inherited and fractional shares are included.</p>
 <p>Louisiana uses parishes rather than counties. Put the parish in the county field on the form. Land records are kept by the clerk of court in the parish. Well data is published through the state’s SONRIS system.</p>
-${anywhere}
 <h2>A note on Louisiana mineral rights</h2>
 <p>Louisiana oil and gas rights are not the same as mineral rights in other states. Under the Louisiana Mineral Code, a mineral right created apart from the land is generally a mineral servitude. A servitude can end after ten years without use. Whether that applies to a particular interest depends on the facts. That is a question for a Louisiana attorney. We are not attorneys, and nothing on this page is legal advice.</p>
 <h2>How an offer works</h2>
