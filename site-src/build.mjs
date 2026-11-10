@@ -8,7 +8,16 @@ const SITE = "https://sellmineralrightsfast.com";
 const PHONE = "(817) 818-1034";
 const TEL = "+18178181034";
 const EMAIL = "riley@dynastylm.com";
-const STATES = ["Texas", "New Mexico", "Oklahoma", "Colorado", "Wyoming", "Montana", "North Dakota", "Other"];
+const STATES = [
+  "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut",
+  "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa",
+  "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan",
+  "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire",
+  "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio",
+  "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota",
+  "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia",
+  "Wisconsin", "Wyoming", "Other"
+];
 
 const NAV = [
   ["/how-it-works", "How It Works"],
@@ -26,7 +35,8 @@ const BUY_LINKS = [
   ["/sell-mineral-rights-wyoming", "Sell mineral rights in Wyoming"],
   ["/sell-mineral-rights-montana", "Sell mineral rights in Montana"],
   ["/sell-mineral-rights-north-dakota", "Sell mineral rights in North Dakota"],
-  ["/sell-mineral-rights-permian-basin", "Permian Basin mineral rights"]
+  ["/sell-mineral-rights-permian-basin", "Permian Basin mineral rights"],
+  ["/sell-mineral-rights-louisiana", "Sell mineral rights in Louisiana"]
 ];
 
 function esc(value) {
@@ -68,7 +78,7 @@ function header(activePath, offerHref) {
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">Menu</button>
     <ul class="nav-links" id="nav-menu">${links}</ul>
     <a class="nav-phone" href="tel:${TEL}">${PHONE}</a>
-    <a class="nav-cta" href="${offer}">Get an offer</a>
+    <a class="nav-cta" href="${offer}">Request an offer</a>
   </div>
 </header>`;
 }
@@ -92,7 +102,6 @@ function footer(offerHref) {
         <li><a href="/mineral-rights-value">What it’s worth</a></li>
         <li><a href="/inherited-mineral-rights">Inherited minerals</a></li>
         <li><a href="/faq">FAQ</a></li>
-        <li><a href="/sell-mineral-rights-louisiana">Louisiana (not our buy box)</a></li>
         <li><a href="/privacy">Privacy policy</a></li>
       </ul>
     </nav>
@@ -112,7 +121,7 @@ function footer(offerHref) {
 </footer>
 <div class="callbar">
   <a class="call" href="tel:${TEL}">Call ${PHONE}</a>
-  <a class="offer" href="${offerHref || "#offer"}">Get a cash offer</a>
+  <a class="offer" href="${offerHref || "#offer"}">Request an offer</a>
 </div>`;
 }
 
@@ -127,9 +136,9 @@ function formCard(selected) {
     <p>Someone from Dynasty Mineral Partners will contact you about a cash offer. You do not have to accept it. To talk now, call <a href="tel:${TEL}">${PHONE}</a>.</p>
   </div>
   <form id="leadForm" method="post" action="/api/lead" novalidate>
-    <p class="kicker">Free and confidential</p>
-    <h2>Get your free cash offer</h2>
-    <p class="takes">About a minute. No fees. No obligation to sell.</p>
+    <p class="kicker">No cost. No obligation.</p>
+    <h2>Request a cash offer</h2>
+    <p class="takes">About a minute. No fee to request an offer.</p>
     <div id="formAlert" class="form-alert" role="alert"></div>
     <div class="hp" aria-hidden="true">
       <label for="hp_field">Company website</label>
@@ -142,7 +151,7 @@ function formCard(selected) {
     </div>
     <div class="field">
       <label for="phone">Phone <span class="req">*</span></label>
-      <input type="tel" id="phone" name="phone" required autocomplete="tel" inputmode="tel" placeholder="(555) 555-5555" aria-describedby="phone-error">
+      <input type="tel" id="phone" name="phone" required autocomplete="tel" inputmode="tel" aria-describedby="phone-error">
       <p class="field-error" id="phone-error"></p>
     </div>
     <div class="field">
@@ -174,8 +183,8 @@ function formCard(selected) {
       <span>By submitting, I agree to be contacted by Dynasty Mineral Partners via phone, text, or email about my mineral rights, including by automated means. Message/data rates may apply. Consent is not a condition of any offer. See our <a href="/privacy">Privacy Policy</a>.</span>
     </label>
     <p class="field-error" id="consent-error"></p>
-    <button type="submit" class="btn btn-block" id="submitBtn">Get my free cash offer</button>
-    <p class="form-note">No broker. No fees. No obligation to sell.</p>
+    <button type="submit" class="btn btn-block" id="submitBtn">Request a cash offer</button>
+    <p class="form-note">No fee. No obligation to sell.</p>
   </form>
 </div>`;
 }
@@ -198,11 +207,8 @@ function orgSchema() {
       addressRegion: "TX",
       addressCountry: "US"
     },
-    areaServed: ["Texas", "New Mexico", "Oklahoma", "Colorado", "Wyoming", "Montana", "North Dakota"].map((name) => ({
-      "@type": "State",
-      name
-    })),
-    description: "Direct buyer of oil and gas mineral, royalty, and overriding royalty interests in the Permian Basin, Oklahoma Anadarko (Red Fork and Cherokee), DJ Basin, Powder River Basin, and occasionally the Bakken."
+    areaServed: { "@type": "Country", name: "United States" },
+    description: "Direct buyer of oil and gas mineral, royalty, and overriding royalty interests. Most active in the Permian, Anadarko, DJ Basin, Powder River Basin, and Bakken. Buys in any U.S. oil and gas area when the numbers make sense."
   };
 }
 
@@ -264,7 +270,7 @@ function head({ title, description, path: pagePath, robots, schemas, noindex }) 
 <meta name="theme-color" content="#171717">
 <link rel="canonical" href="${canonical}">
 <link rel="preload" href="/fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/montserrat.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/styles.css">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
@@ -304,12 +310,12 @@ function faqBlock(items) {
 
 function homePage() {
   const trust = [
-    ["check", "Direct buyer, not a broker"],
-    ["doc", "No fees and no obligation"],
-    ["people", "Inherited and fractional welcome"],
-    ["shield", "We handle title and closing"]
+    "No fee to request an offer",
+    "No obligation to accept",
+    "Inherited and fractional interests",
+    "We handle title and closing"
   ]
-    .map(([name, label]) => `<li>${icon(name)}<span>${label}</span></li>`)
+    .map((label) => `<li>${esc(label)}</li>`)
     .join("");
 
   const stepHtml = steps
@@ -344,7 +350,7 @@ function homePage() {
 
   const html = `${head({
     title: "Sell Mineral Rights Fast | Dynasty Mineral Partners",
-    description: "Direct buyer of oil and gas minerals and royalties in the Permian, Anadarko, DJ, Powder River, and Bakken. Free cash offer. No fees. Call (817) 818-1034.",
+    description: "Direct buyer of minerals and royalties. Most active in the Permian, Anadarko, DJ, Powder River, and Bakken. Any U.S. area when the numbers make sense.",
     path: "/",
     schemas: [orgSchema(), faqSchema(homeFaqs)]
   })}
@@ -354,57 +360,48 @@ ${header("/")}
 <main id="main">
   <section class="hero">
     <div class="wrap hero-grid">
-      <p class="kicker">Weatherford, Texas · Direct end buyer</p>
-      <h1>A straightforward cash offer for your mineral rights.</h1>
+      <p class="kicker">Weatherford, Texas</p>
+      <h1>Sell your mineral rights.</h1>
       ${formCard("")}
       <div class="hero-rest">
-        <p class="lede">We buy oil and gas minerals, royalties, and overriding royalties from the people who own them. Producing wells, near-term drilling, and undeveloped locations — including inherited, small, and fractional interests.</p>
+        <p class="lede">Dynasty Mineral Partners is a direct buyer of oil and gas minerals and royalties. We are most active in the Permian, the Anadarko, the DJ Basin, the Powder River Basin, and the Bakken. If the numbers make sense, we will buy in any U.S. oil and gas area.</p>
         <ul class="trust">${trust}</ul>
-        <p class="hero-phone">Prefer to talk? <a href="tel:${TEL}">${PHONE}</a></p>
+        <p class="hero-phone">Call <a href="tel:${TEL}">${PHONE}</a></p>
       </div>
     </div>
   </section>
   <section class="section" id="how-it-works">
     <div class="wrap">
       <div class="section-head">
-        <h2>Getting an offer is simple</h2>
-        <p>From the first call to closing, you deal with the buyer. <a href="/how-it-works">Read the full process</a>.</p>
+        <h2>How an offer works</h2>
+        <p>You deal with the buyer. <a href="/how-it-works">Read the full process</a>.</p>
       </div>
       <ol class="steps">${stepHtml}</ol>
     </div>
   </section>
-  <figure class="range">
-    <img src="/images/range.svg" alt="Illustrated evening light over West Texas range land, with low hills and a distant pumpjack." width="1600" height="480">
-  </figure>
   <section class="section" id="where-we-buy">
     <div class="wrap">
       <div class="section-head">
         <h2>Where we buy</h2>
-        <p>A specific buy box, not a list of every oil state. If your county is outside it, call and we will say so.</p>
+        <p>These are the areas where we are most active. If the numbers make sense, we will buy mineral and royalty interests in any U.S. oil and gas area.</p>
       </div>
       <div class="basins">${basinHtml}</div>
     </div>
   </section>
-  <section class="section section-dark" id="what-we-buy">
-    <div class="wrap with-plat">
-      <div>
-        <div class="section-head">
-          <h2>What we buy</h2>
-          <p>Plain-language versions of the interest types oil and gas buyers actually underwrite.</p>
-        </div>
-        <div class="buy-grid">${types}</div>
+  <section class="section section-sand" id="what-we-buy">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>What we buy</h2>
+        <p>Mineral interests, royalty interests, and overriding royalty interests.</p>
       </div>
-      <figure class="plat-fig">
-        <img src="/images/plat.svg" alt="Diagram of one section of land with a single tract marked, the way mineral ownership is often described." width="560" height="560">
-        <figcaption>Mineral ownership is usually a piece of a section, not the whole map. A county and a stub are enough to start.</figcaption>
-      </figure>
+      <div class="buy-grid">${types}</div>
     </div>
   </section>
   <section class="section" id="why-dynasty">
     <div class="wrap">
       <div class="section-head">
-        <h2>Why owners call Dynasty</h2>
-        <p>What we will put in writing, and what we will not invent to impress you.</p>
+        <h2>Working with us</h2>
+        <p>A direct purchase. No listing, and no fee to ask for an offer.</p>
       </div>
       <div class="why">${why}</div>
     </div>
@@ -420,10 +417,10 @@ ${header("/")}
   </section>
   <section class="cta-band">
     <div class="wrap">
-      <h2>See what a cash offer looks like.</h2>
-      <p>Free, in writing, and easy to turn down. Most of what we need is the county and whether you are receiving checks.</p>
+      <h2>Request a cash offer.</h2>
+      <p>Tell us the state and county, and whether you receive royalty checks. There is no fee, and you do not have to accept an offer.</p>
       <div class="cta-actions">
-        <a class="btn" href="#offer">Get my free cash offer</a>
+        <a class="btn" href="#offer">Request a cash offer</a>
         <a class="phone" href="tel:${TEL}">or call ${PHONE}</a>
       </div>
     </div>

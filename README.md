@@ -80,19 +80,21 @@ If the site is ever moved off Cloudflare Pages, paste a key into `form-config.js
 
 That file is public. Prefer the environment variables above while the site stays on Cloudflare Pages.
 
-The form fields are name, phone, email, state, county, and whether the owner is receiving royalty checks, plus the TCPA consent checkbox. The state list is Texas, New Mexico, Oklahoma, Colorado, Wyoming, Montana, North Dakota, and Other.
+The form fields are name, phone, email, state, county, and whether the owner is receiving royalty checks, plus the TCPA consent checkbox. The state list is all 50 states, plus Other.
 
-## Buy box
+## Where we buy
 
-The pages match the current buy box:
+Featured areas, where the company is most active:
 
 - Permian Basin in Texas and New Mexico (Midland and Delaware)
 - Red Fork and Cherokee in the Oklahoma Anadarko
 - DJ Basin, Weld County, Colorado
 - Powder River Basin, Converse County, Wyoming
-- Bakken in Montana and North Dakota, occasionally
+- Bakken in Montana and North Dakota
 
-`/sell-mineral-rights-louisiana` still exists so the old URL does not 404. The page says Louisiana is not in the buy box.
+If the numbers make sense, they will buy mineral and royalty interests in any U.S. oil and gas area. The Louisiana page is a normal acquisition page, including the Haynesville and South Louisiana.
+
+Colors on the site are only `#ffedca`, `#171717`, `#1d2a42`, and `#ffffff`. Headings use Montserrat, the closest open-license match to the "MINERAL PARTNERS" line in the logo. Body text uses Source Sans 3 at 18px. The script in the "Dynasty" wordmark is closest to Great Vibes. That face stays in the logo image. It is not used for headings, because a script is hard to read in a full headline.
 
 ## Analytics
 

@@ -44,7 +44,11 @@
   var thanks = document.getElementById("formThanks");
   var button = document.getElementById("submitBtn");
   var cfg = window.DYNASTY_FORM || {};
-  var STATES = ["Texas", "New Mexico", "Oklahoma", "Colorado", "Wyoming", "Montana", "North Dakota", "Other"];
+  function allowedStates() {
+    return Array.prototype.map.call(form.state.options, function (opt) {
+      return opt.value;
+    }).filter(function (value) { return value; });
+  }
 
   function digits(value) { return String(value || "").replace(/\D/g, ""); }
   function emailOk(value) {
@@ -84,7 +88,7 @@
     if (name.length < 2) fail("name", "Enter your name.");
     if (digits(phone).length < 10) fail("phone", "Enter a phone number with at least 10 digits.");
     if (!emailOk(email)) fail("email", "Enter a valid email, or leave it blank.");
-    if (STATES.indexOf(state) === -1) fail("state", "Choose a state.");
+    if (allowedStates().indexOf(state) === -1) fail("state", "Choose a state.");
     if (!form.consent.checked) fail("consent", "Consent is required so we can contact you about an offer.");
     if (first) {
       alertBox.textContent = "Please fix the highlighted fields.";
@@ -98,7 +102,7 @@
   }
 
   function showFail() {
-    alertBox.innerHTML = 'We couldn’t send this from the form. Call <a href="tel:+18178181034">(817) 818-1034</a> or email <a href="mailto:riley@dynastylm.com">riley@dynastylm.com</a> and we’ll take it from there.';
+    alertBox.innerHTML = 'We could not send the form. Call <a href="tel:+18178181034">(817) 818-1034</a> or email <a href="mailto:riley@dynastylm.com">riley@dynastylm.com</a>.';
     alertBox.classList.add("is-on");
   }
 

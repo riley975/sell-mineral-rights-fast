@@ -14,14 +14,14 @@
  */
 
 const STATES = new Set([
-  "Texas",
-  "New Mexico",
-  "Oklahoma",
-  "Colorado",
-  "Wyoming",
-  "Montana",
-  "North Dakota",
-  "Other"
+  "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut",
+  "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa",
+  "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan",
+  "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire",
+  "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio",
+  "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota",
+  "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia",
+  "Wisconsin", "Wyoming", "Other"
 ]);
 
 function clean(value, max) {
@@ -158,7 +158,7 @@ export async function onRequestPost(context) {
   if (parsed.error) {
     return asJson
       ? json({ ok: false, error: parsed.error }, parsed.error === "too_large" ? 413 : 400)
-      : html("We couldn’t read that form", "Please call (817) 818-1034 or email riley@dynastylm.com.", 400);
+      : html("We could not read that form", "Please call (817) 818-1034 or email riley@dynastylm.com.", 400);
   }
 
   const data = parsed.data || {};
@@ -201,11 +201,11 @@ export async function onRequestPost(context) {
     const message = "This form is not connected to an inbox yet. Call (817) 818-1034 or email riley@dynastylm.com and we will take your information directly.";
     return asJson
       ? json({ ok: false, error: "not_configured" }, 503)
-      : html("Call us and we’ll take it from here", message, 503);
+      : html("Call us and we will take it from here", message, 503);
   }
 
   if (!delivered) {
-    const message = "We couldn’t send the form. Call (817) 818-1034 or email riley@dynastylm.com.";
+    const message = "We could not send the form. Call (817) 818-1034 or email riley@dynastylm.com.";
     return asJson
       ? json({ ok: false, error: "upstream" }, 502)
       : html("Please call us", message, 502);
