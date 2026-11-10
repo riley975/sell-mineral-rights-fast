@@ -1,14 +1,18 @@
 /**
  * Cloudflare Pages Function: POST /api/lead
  *
- * Configure ONE of these environment variables on the Pages project
- * (Settings → Environment variables), then redeploy:
+ * Text (Quo, formerly OpenPhone). Set QUO_API_KEY as an encrypted
+ * Production secret, then redeploy. Optional:
+ *   QUO_FROM      defaults to +18178181034 (E.164 or a PN phone-number id)
+ *   LEAD_SMS_TO   defaults to +12146499538
+ * Current docs: POST https://api.quo.com/v1/messages
+ *               Authorization: <api key>   (no Bearer prefix)
  *
- *   WEB3FORMS_ACCESS_KEY   key from https://web3forms.com (recommended)
- *   FORMSPREE_ENDPOINT     full URL, https://formspree.io/f/xxxxxxxx
- *   LEAD_WEBHOOK_URL       any HTTPS endpoint that accepts a JSON lead
- *   RESEND_API_KEY         plus LEAD_TO_EMAIL and LEAD_FROM_EMAIL
- *                          (from-address must be on a verified domain)
+ * Email still works, and both can run. The form succeeds if either delivers.
+ *   WEB3FORMS_ACCESS_KEY
+ *   FORMSPREE_ENDPOINT
+ *   LEAD_WEBHOOK_URL
+ *   RESEND_API_KEY plus LEAD_TO_EMAIL and LEAD_FROM_EMAIL
  *
  * No secrets belong in the repository.
  */
@@ -29,6 +33,61 @@ function clean(value, max) {
     .replace(/[\u0000-\u001F\u007F]/g, " ")
     .trim()
     .slice(0, max);
+}
+
+function scrub(value, max) {
+  return clean(value, max * 4)
+    .replace(/<[^>]*>/g, " ")
+    .replace(/https?:\/\/\S+/gi, "")
+    .replace(/\bwww\.\S+/gi, "")
+    .replace(/\b(?:bit\.ly|tinyurl\.com|t\.co)\/\S+/gi, "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, max);
+}
+
+function pageLabel(value) {
+  const raw = clean(value, 300);
+  if (!raw) return "unknown";
+  try {
+    const url = new URL(raw, "https://sellmineralrightsfast.com");
+    const host = url.hostname.replace(/^www\./, "");
+    if (host !== "sellmineralrightsfast.com") return "other page";
+    return (url.pathname || "/").slice(0, 80);
+  } catch (err) {
+    return "unknown";
+  }
+}
+
+const recentByIp = new Map();
+
+function memoryLimited(ip) {
+  const now = Date.now();
+  const windowMs = 10 * 60 * 1000;
+  const recent = (recentByIp.get(ip) || []).filter((time) => now - time < windowMs);
+  if (recent.length >= 5) {
+    recentByIp.set(ip, recent);
+    return true;
+  }
+  recent.push(now);
+  recentByIp.set(ip, recent);
+  return false;
+}
+
+async function tooMany(request) {
+  const ip = request.headers.get("cf-connecting-ip") || request.headers.get("x-forwarded-for") || "unknown";
+  if (typeof caches === "undefined" || !caches.default) return memoryLimited(ip);
+  const key = new Request("https://lead-rate.invalid/" + encodeURIComponent(ip.split(",")[0].trim()));
+  const hit = await caches.default.match(key);
+  const count = hit ? Number((await hit.json()).count) || 0 : 0;
+  if (count >= 5) return true;
+  await caches.default.put(
+    key,
+    new Response(JSON.stringify({ count: count + 1 }), {
+      headers: { "cache-control": "public, max-age=600", "content-type": "application/json" }
+    })
+  );
+  return false;
 }
 
 function json(body, status) {
@@ -79,7 +138,52 @@ async function readBody(request) {
   }
 }
 
-async function deliver(env, lead) {
+function producingLabel(lead) {
+  const explicit = lead.producing;
+  if (explicit) return explicit;
+  if (lead.receiving === "Yes") return "Yes, receiving royalty checks";
+  if (lead.receiving === "No") return "No";
+  return "Not sure";
+}
+
+function smsText(lead) {
+  const lines = [
+    "New mineral offer request",
+    `Name: ${lead.name}`,
+    `Phone: ${lead.phone}`,
+    `Email: ${lead.email || "not given"}`,
+    `State: ${lead.state}`,
+    `County: ${lead.county || "not given"}`,
+    `Acres: ${lead.acres || "not given"}`,
+    `Producing: ${producingLabel(lead)}`,
+    `Message: ${lead.message || "none"}`,
+    `Page: ${lead.page}`
+  ];
+  let text = lines.join("\n");
+  if (text.length > 600) text = text.slice(0, 597).trimEnd() + "...";
+  return text;
+}
+
+async function deliverSms(env, lead) {
+  if (!env.QUO_API_KEY) return null;
+  const from = env.QUO_FROM || "+18178181034";
+  const to = env.LEAD_SMS_TO || "+12146499538";
+  const res = await fetch("https://api.quo.com/v1/messages", {
+    method: "POST",
+    headers: {
+      Authorization: env.QUO_API_KEY,
+      "content-type": "application/json"
+    },
+    body: JSON.stringify({
+      content: smsText(lead),
+      from,
+      to: [to]
+    })
+  });
+  return res.ok;
+}
+
+async function deliverEmail(env, lead) {
   if (env.WEB3FORMS_ACCESS_KEY) {
     const res = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -168,19 +272,23 @@ export async function onRequestPost(context) {
       : Response.redirect(new URL("/thanks", request.url), 303);
   }
 
+  const phoneRaw = clean(data.phone, 40);
   const lead = {
-    name: clean(data.name, 120),
-    phone: clean(data.phone, 40),
-    email: clean(data.email, 160),
+    name: scrub(data.name, 80),
+    phone: scrub(data.phone, 40),
+    email: scrub(data.email, 80),
     state: clean(data.state, 40),
-    county: clean(data.county, 80),
+    county: scrub(data.county, 60),
     receiving: clean(data.receiving, 40),
-    page: clean(data.page, 300),
+    acres: scrub(data.acres || data.approximateAcres, 40),
+    producing: scrub(data.producing, 40),
+    message: scrub(data.message || data.note, 180),
+    page: pageLabel(data.page),
     consent: data.consent === "Yes" || data.consent === "on" || data.consent === true ? "Yes" : "No",
     submittedAt: new Date().toISOString()
   };
 
-  const digits = lead.phone.replace(/\D/g, "");
+  const digits = phoneRaw.replace(/\D/g, "");
   const emailOk = !lead.email || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email);
   const valid = lead.name.length >= 2 && digits.length >= 10 && digits.length <= 15 && STATES.has(lead.state) && lead.consent === "Yes" && emailOk;
 
@@ -190,12 +298,27 @@ export async function onRequestPost(context) {
       : html("Check the form", "Name, phone, state, and consent are required. Please go back and try again, or call (817) 818-1034.", 400);
   }
 
-  let delivered;
-  try {
-    delivered = await deliver(env, lead);
-  } catch (err) {
-    delivered = false;
+  if (await tooMany(request)) {
+    const message = "Please call (817) 818-1034 or email riley@dynastylm.com.";
+    return asJson
+      ? json({ ok: false, error: "rate_limited" }, 429)
+      : html("Please call us", message, 429);
   }
+
+  let emailResult = null;
+  let smsResult = null;
+  try {
+    emailResult = await deliverEmail(env, lead);
+  } catch (err) {
+    emailResult = false;
+  }
+  try {
+    smsResult = await deliverSms(env, lead);
+  } catch (err) {
+    smsResult = false;
+  }
+  const attempts = [emailResult, smsResult].filter((result) => result !== null);
+  const delivered = attempts.length === 0 ? null : attempts.some(Boolean);
 
   if (delivered === null) {
     const message = "This form is not connected to an inbox yet. Call (817) 818-1034 or email riley@dynastylm.com and we will take your information directly.";

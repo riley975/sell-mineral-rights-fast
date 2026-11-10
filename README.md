@@ -1,6 +1,6 @@
 # SellMineralRightsFast.com
 
-Marketing site for **Dynasty Mineral Partners**, a DBA of Dynasty Land & Minerals, LLC (Weatherford, Texas). It is a static site: HTML, CSS, and a small script in the repository root.
+Marketing site for **Dynasty Mineral Partners**, a DBA of Dynasty Land & Minerals, LLC. It is a static site: HTML, CSS, and a small script in the repository root.
 
 Phone: (817) 818-1034  
 Email: riley@dynastylm.com
@@ -38,11 +38,31 @@ node site-src/build.mjs
 
 Commit the regenerated HTML. If you edit an HTML file by hand, do not run the generator afterward or it will overwrite that file.
 
-## The offer form — you must connect an inbox
+## The offer form — you must connect a destination
 
-The form does not send mail until you add a key. No key is stored in this repo on purpose. Until then, a person who submits sees a message to call or email, instead of a fake “we received it.”
+The form does not send anything until you add a key. No key is stored in this repo. Until then, a person who submits sees a message to call or email, instead of a fake “we received it.”
 
-Pick **one** option. The Cloudflare environment variable is the better one, because the key stays off the public site.
+A text and an email can both be turned on. The visitor sees success if either one is delivered.
+
+### Text Riley through Quo
+
+Quo (formerly OpenPhone) sends the text. Current API docs use `POST https://api.quo.com/v1/messages` with the raw API key in the `Authorization` header (no `Bearer` prefix) and a JSON body of `content`, `from`, and `to`. Confirm the shape at [Send a text message](https://www.quo.com/docs/api-reference/messages/send-a-text-message) if Quo changes it.
+
+To create the key, you need to be an owner or admin of the Quo workspace:
+
+1. Log in to Quo.
+2. Open workspace settings and choose the **API** tab. Quo documents this under [Authentication](https://www.quo.com/docs/api-reference/authentication).
+3. Generate a key and give it a name with no spaces, such as `website-leads`.
+4. In the Cloudflare Pages project, open **Settings → Environment variables → Production**.
+5. Add `QUO_API_KEY` and mark it **Encrypt** (a secret). Paste the key. Do not commit it.
+6. Optional: `QUO_FROM` (defaults to `+18178181034`; a phone-number id such as `PNnNVNsXOj` also works) and `LEAD_SMS_TO` (defaults to `+12146499538`).
+7. Redeploy (Deployments → Retry deployment, or push a commit).
+
+Quo also requires US carrier registration before the API can text a US number. Their authentication page links to that requirement.
+
+### Email
+
+Pick one email option. These stay independent of the text.
 
 ### Option A — Web3Forms (recommended)
 
