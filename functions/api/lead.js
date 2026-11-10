@@ -164,15 +164,31 @@ function smsText(lead) {
   return text;
 }
 
-async function deliverSms(env, lead) {
-  if (!env.QUO_API_KEY) return null;
+async function logUpstream(label, error) {
+  if (error instanceof Response) {
+    let body = "";
+    try {
+      body = (await error.text()).replace(/\s+/g, " ").trim().slice(0, 300);
+    } catch (err) {
+      body = err && err.message ? err.message : "unreadable body";
+    }
+    console.error(label + " failed: HTTP " + error.status + " " + body);
+    return;
+  }
+  const message = error && error.message ? error.message : String(error);
+  console.error(label + " failed: " + message);
+}
+
+async function postSms(url, env, lead) {
   const from = env.QUO_FROM || "+18178181034";
   const to = env.LEAD_SMS_TO || "+12146499538";
-  const res = await fetch("https://api.quo.com/v1/messages", {
+  return fetch(url, {
     method: "POST",
     headers: {
       Authorization: env.QUO_API_KEY,
-      "content-type": "application/json"
+      "content-type": "application/json",
+      accept: "application/json",
+      "user-agent": "DynastyMineralPartners-LeadForm/1.0"
     },
     body: JSON.stringify({
       content: smsText(lead),
@@ -180,7 +196,21 @@ async function deliverSms(env, lead) {
       to: [to]
     })
   });
-  return res.ok;
+}
+
+async function deliverSms(env, lead) {
+  if (!env.QUO_API_KEY) return null;
+  const urls = ["https://api.quo.com/v1/messages", "https://api.openphone.com/v1/messages"];
+  for (let i = 0; i < urls.length; i++) {
+    try {
+      const res = await postSms(urls[i], env, lead);
+      if (res.ok) return true;
+      await logUpstream("Quo SMS " + urls[i], res);
+    } catch (err) {
+      await logUpstream("Quo SMS " + urls[i], err);
+    }
+  }
+  return false;
 }
 
 async function deliverEmail(env, lead) {
@@ -223,7 +253,9 @@ async function deliverEmail(env, lead) {
     return res.ok;
   }
 
-  if (env.RESEND_API_KEY && env.LEAD_TO_EMAIL && env.LEAD_FROM_EMAIL) {
+  const resendTo = env.LEAD_TO_EMAIL || env.NOTIFY_EMAIL;
+  const resendFrom = env.LEAD_FROM_EMAIL || env.FROM_EMAIL;
+  if (env.RESEND_API_KEY && resendTo && resendFrom) {
     const text = [
       `Name: ${lead.name}`,
       `Phone: ${lead.phone}`,
@@ -235,20 +267,29 @@ async function deliverEmail(env, lead) {
       `Page: ${lead.page}`,
       `Submitted: ${lead.submittedAt}`
     ].join("\n");
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        authorization: `Bearer ${env.RESEND_API_KEY}`,
-        "content-type": "application/json"
-      },
-      body: JSON.stringify({
-        from: env.LEAD_FROM_EMAIL,
-        to: [env.LEAD_TO_EMAIL],
-        subject: `Mineral rights offer request — ${lead.name} (${lead.state})`,
-        text
-      })
-    });
-    return res.ok;
+    try {
+      const res = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          authorization: `Bearer ${env.RESEND_API_KEY}`,
+          "content-type": "application/json"
+        },
+        body: JSON.stringify({
+          from: resendFrom,
+          to: [resendTo],
+          subject: `Mineral rights offer request — ${lead.name} (${lead.state})`,
+          text
+        })
+      });
+      if (!res.ok) {
+        await logUpstream("Resend", res);
+        return false;
+      }
+      return true;
+    } catch (err) {
+      await logUpstream("Resend", err);
+      return false;
+    }
   }
 
   return null;

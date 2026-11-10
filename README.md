@@ -86,8 +86,8 @@ Set `LEAD_WEBHOOK_URL` to an HTTPS endpoint that accepts a JSON POST. The body i
 Set all three:
 
 - `RESEND_API_KEY`
-- `LEAD_TO_EMAIL` (for example `riley@dynastylm.com`)
-- `LEAD_FROM_EMAIL` (a from-address on a domain you have verified in Resend)
+- `LEAD_TO_EMAIL`, or the existing name `NOTIFY_EMAIL`
+- `LEAD_FROM_EMAIL`, or the existing name `FROM_EMAIL` (a from-address on a domain you have verified in Resend)
 
 Redeploy. Resend’s shared onboarding address will not deliver to an arbitrary inbox.
 
