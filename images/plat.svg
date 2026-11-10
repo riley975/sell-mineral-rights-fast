@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 560" fill="none" role="img" aria-label="Diagram of a land section with one tract highlighted">
+  <rect x="40" y="40" width="480" height="480" fill="#FBF8F4" stroke="#CDB89A" stroke-width="2"/>
+  <g stroke="#E4D5C0" stroke-width="1.25">
+    <path d="M160 40v480M280 40v480M400 40v480M40 160h480M40 280h480M40 400h480"/>
+  </g>
+  <g stroke="#CDB89A" stroke-width="1">
+    <path d="M100 40v480M220 40v480M340 40v480M460 40v480M40 100h480M40 220h480M40 340h480M40 460h480"/>
+  </g>
+  <rect x="280" y="160" width="120" height="120" fill="#8E4522" fill-opacity="0.16" stroke="#8E4522" stroke-width="2.5"/>
+  <path d="M508 78v-28h-8" stroke="#1B1714" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M500 46l8 10 8-10" fill="#1B1714"/>
+  <circle cx="70" cy="70" r="3" fill="#8E4522"/>
+  <circle cx="490" cy="490" r="3" fill="#8E4522"/>
+</svg>

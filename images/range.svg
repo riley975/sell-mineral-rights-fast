@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 480" fill="none" role="img" aria-label="Illustrated West Texas range at evening">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E4C19A"/>
+      <stop offset="42%" stop-color="#F0DCC6"/>
+      <stop offset="100%" stop-color="#F4EFE6"/>
+    </linearGradient>
+    <linearGradient id="far" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D5C2A6"/>
+      <stop offset="100%" stop-color="#C9B292"/>
+    </linearGradient>
+    <linearGradient id="mid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#B08A64"/>
+      <stop offset="100%" stop-color="#8C6848"/>
+    </linearGradient>
+    <linearGradient id="near" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6E5138"/>
+      <stop offset="100%" stop-color="#4E3928"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="480" fill="url(#sky)"/>
+  <circle cx="1210" cy="118" r="118" fill="#F6D7A8" opacity="0.28"/>
+  <circle cx="1210" cy="118" r="58" fill="#F8E2C0"/>
+  <g stroke="#F7F1E8" stroke-width="1.25" opacity="0.45">
+    <path d="M80 210c80-18 140-8 210 6 70 14 120 8 190-10"/>
+    <path d="M60 236c90-16 160-4 250 10 80 12 150 4 230-14"/>
+    <path d="M860 196c70-16 130-6 200 8 60 12 120 6 180-8"/>
+    <path d="M840 222c80-14 150-2 230 12 70 12 130 2 200-12"/>
+  </g>
+  <path d="M0 268c120-46 210-28 320-52 130-28 200-8 330 6 140 16 230-20 360-36 120-14 210 10 300-8 80-16 160-6 290 18v284H0V268Z" fill="url(#far)"/>
+  <path d="M0 332c140-40 240-18 360-36 150-22 230 8 370-6 150-16 250-40 390-18 120 18 200 4 280-10 70-10 130 4 200 16v200H0V332Z" fill="url(#mid)"/>
+  <g stroke="#F4EFE6" stroke-width="1.2" opacity="0.35" fill="none">
+    <path d="M40 360c120-22 200-10 300-2 110 8 180-6 280 4"/>
+    <path d="M70 388c110-16 190-6 290 2 120 10 200-8 310 2"/>
+    <path d="M980 348c90-18 160-8 250 2 80 8 140-4 220 6"/>
+  </g>
+  <path d="M0 400c160-28 260-6 400-20 160-16 250 16 420 2 180-14 280-8 420 10 100 12 180 4 360-6v94H0V400Z" fill="url(#near)"/>
+  <g fill="#31483C">
+    <ellipse cx="180" cy="392" rx="34" ry="10"/>
+    <rect x="176" y="366" width="6" height="28" rx="2" fill="#3A2C22"/>
+    <ellipse cx="470" cy="404" rx="46" ry="12"/>
+    <rect x="466" y="372" width="7" height="34" rx="2" fill="#3A2C22"/>
+    <ellipse cx="1320" cy="386" rx="40" ry="11"/>
+    <rect x="1316" y="358" width="6" height="30" rx="2" fill="#3A2C22"/>
+    <ellipse cx="1460" cy="398" rx="28" ry="8"/>
+    <rect x="1457" y="376" width="5" height="24" rx="2" fill="#3A2C22"/>
+  </g>
+  <g stroke="#2A211B" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M1016 372h92"/>
+    <path d="M1040 372v-18M1084 372v-18"/>
+    <path d="M1032 312l28 42M1092 312l-28 42"/>
+    <path d="M1004 304h96"/>
+    <path d="M1096 300c10 2 16 10 16 18"/>
+    <path d="M1112 318v28"/>
+    <path d="M1008 308l-16 22"/>
+    <circle cx="992" cy="334" r="7"/>
+  </g>
+  <g fill="#4E3928" opacity="0.55">
+    <path d="M90 430h2v18h-2zM110 434h2v14h-2zM128 428h2v20h-2zM150 436h2v12h-2z"/>
+    <path d="M700 436h2v16h-2zM718 430h2v22h-2zM736 438h2v12h-2z"/>
+    <path d="M1500 428h2v18h-2zM1518 434h2v14h-2zM1536 426h2v20h-2z"/>
+  </g>
+</svg>
